@@ -24,3 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('type','TypeController');
 
 Route::resource('assistant','AssistantController');
+Route::resource('client','ClientController');
+

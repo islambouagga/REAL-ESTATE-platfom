@@ -14,7 +14,9 @@ Relation::morphMap([
 Relation::morphMap([
     'Assistant'=>Assistant::class
 ]);
-
+Relation::morphMap([
+    'Client'=>Client::class
+]);
 
 
 class User extends Authenticatable
