@@ -7,7 +7,7 @@
       <th scope="col">#</th>
       <th scope="col">name user</th>
       <th scope="col">nom user</th>
-      <th scope="col">prenom</th>
+      <th scope="col">prenom user</th>
       <th scope="col">address</th>
       <th scope="col">telephone</th>
       <th scope="col">email</th>
