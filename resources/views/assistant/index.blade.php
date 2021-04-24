@@ -6,7 +6,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">name</th>
-      <th scope="col">nom</th>
+      <th scope="col">nom assistant </th>
       <th scope="col">prenom</th>
       <th scope="col">address</th>
       <th scope="col">telephone</th>
