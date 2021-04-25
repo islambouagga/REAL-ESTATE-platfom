@@ -215,6 +215,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>
                         </ul>
                     </li>
+                    
                     <li class="nav-item has-treeview menu-open">
                         <a href="#" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -234,6 +235,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <a href="{{route('client.create')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Create new client</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+                    <li class="nav-item has-treeview menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                  Offer
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('offer.index')}}" class="nav-link active">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>List de  Offer</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('offer.create')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Create new Offer</p>
                                 </a>
                             </li>
                         </ul>

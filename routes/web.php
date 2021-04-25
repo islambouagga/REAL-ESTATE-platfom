@@ -22,6 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('type','TypeController');
+Route::resource('offer','OfferController');
 
 Route::resource('assistant','AssistantController');
 Route::resource('client','ClientController');
