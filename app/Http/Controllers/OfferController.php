@@ -45,6 +45,10 @@ class OfferController extends Controller
             $offer->address = $request->address;
             $offer->prix =$request->prix;
             $offer->surfface = $request->surfface;
+            $offer->usertable_id = $request->offertable_id;
+            $offer->usertable_type = $request->offertable_type;
+
+
             $offer->save();
 
             return redirect('/offer');

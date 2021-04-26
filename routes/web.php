@@ -27,3 +27,7 @@ Route::resource('offer','OfferController');
 Route::resource('assistant','AssistantController');
 Route::resource('client','ClientController');
 
+
+Route::resource('terre','TerreController');
+
+

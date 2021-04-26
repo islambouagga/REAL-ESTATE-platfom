@@ -9,5 +9,5 @@
         <h1>offer  surfface :  {{$offer->surfface}}</h1>
     @endforeach
 
-        <a class="btn btn-success" href="{{route('offer.edit',$offer->id)}}">Edit</a>
+        <a class="btn btn-success" href="{{route('terre.edit',$terre->id)}}">Edit</a>
 @endsection
