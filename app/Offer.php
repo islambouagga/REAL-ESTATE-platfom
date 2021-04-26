@@ -8,12 +8,9 @@ class Offer extends Model
 {
     //
      protected $fillable = [
-        'id',
-        'susurffacerfface',
+        'surfface',
         'prix',
         'adresse',
-
-
     ];
 }
 

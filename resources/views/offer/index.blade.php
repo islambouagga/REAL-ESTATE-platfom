@@ -13,11 +13,11 @@
     </tr>
   </thead>
   <tbody>
-  @foreach($offer as $offer)
+  @foreach($offers as $offer)
     <tr>
 
       <td>{{$offer->id}}</td>
-   
+
       <td>{{$offer->address}}</td>
       <td>{{$offer->prix}}</td>
       <td>{{$offer->surfface}}</td>
@@ -35,7 +35,7 @@
       </td>
     </tr>
                @endforeach
-               
+
   </tbody>
 </table>
 @endsection

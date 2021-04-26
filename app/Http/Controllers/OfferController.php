@@ -15,9 +15,8 @@ class OfferController extends Controller
     public function index()
     {   $offer =  offer::all();
 
-        Schema::dropIfExists('offer');
-        return view('offer.index')->with('offers',$offers);
-        //
+
+        return view('offer.index')->with('offers',$offer);
     }
 
     /**
@@ -40,12 +39,12 @@ class OfferController extends Controller
      */
     public function store(Request $request,offer $offer)
     {
-        dd($request->all());
-      
+//        dd($request->all());
 
-            $offer-> address = $request ->address;
-            $offer-> prix =$request-> prix;
-            $offer-> surfface = $request ->surfface;
+
+            $offer->address = $request->address;
+            $offer->prix =$request->prix;
+            $offer->surfface = $request->surfface;
             $offer->save();
 
             return redirect('/offer');
@@ -64,7 +63,7 @@ class OfferController extends Controller
 
     }
 
-    
+
 
     /**
      * Show the form for editing the specified resource.
@@ -75,7 +74,7 @@ class OfferController extends Controller
     public function edit(Offer $offer)
     {
         //
-        return view ('offer.edit')->with('offer' ,$client);
+        return view ('offer.edit')->with('offer' ,$offer);
 
     }
 
@@ -91,10 +90,10 @@ class OfferController extends Controller
         //
         $offer->update($request->all());
         return view('offer.show')->with('offer',$offer);
-   
-         
+
+
         }
-    
+
 
     /**
      * Remove the specified resource from storage.
