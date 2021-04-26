@@ -21,9 +21,6 @@ class CreateOffersTable extends Migration
             $table->timestamps();
             $table->bigInteger('offertable_id');
             $table->string('offertable_type');
-            $table->rememberToken();
-            $table->timestamps();
-  
                 });
     }
 

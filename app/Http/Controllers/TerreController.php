@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Offer;
 use App\Terre;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class TerreController extends Controller
     {
         //
         $terre =  terre::all();
-        return view('terre.index')->with('terres',$terres);
+        return view('terre.index')->with('terres',$terre);
     }
 
     /**
@@ -37,20 +38,18 @@ class TerreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Offer $offer)
     {
-        //
-        Offer::create([
-            'address' => $request['address'],
-            'prix' => $request['prix'],
-            'surfface' => $request['surfface'],
-          'offertable_id' => $terre->id,
-            'offertable_type' => $request['offertable_type'],
-        
-        ]);
+        $terre =  Terre::create();
+        $offer->address = $request->address;
+        $offer->prix =$request->prix;
+        $offer->surfface = $request->surfface;
+        $offer->offertable_id = $terre->id;
+        $offer->offertable_type = $request->offertable_type;
+        $offer->save();
         return redirect('/terre');
     }
-    
+
 
     /**
      * Display the specified resource.
@@ -92,11 +91,11 @@ class TerreController extends Controller
             $offer->prix =  $request->prix;
             $offer->surfface =  $request->surfface;
             $offer->adresse =  $request->adresse;
-        
+
            $offer->save();
            }
            return  view('terre.show')->with('terre',$terre);
-   
+
     }
 
     /**
@@ -112,7 +111,7 @@ class TerreController extends Controller
 
         //delete terre
         $terre->delete();
-        
-        return redirect('/terre');  
+
+        return redirect('/terre');
     }
 }

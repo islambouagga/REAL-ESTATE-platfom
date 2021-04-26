@@ -36,7 +36,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                    <input type="hidden" name="offertable_type" value="Terre">
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Surfface') }}</label>
 
@@ -50,7 +50,6 @@
                                 @enderror
                             </div>
                         </div>
-
 
 
 

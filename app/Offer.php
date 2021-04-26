@@ -1,19 +1,15 @@
 <?php
 
 namespace App;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Foundation\Auth\offer as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
+use Illuminate\Database\Eloquent\Model;
 Relation::morphMap([
     'Terre'=>Terre::class
 ]);
 
-class Offer extends Authenticatable
-
-
-{    use Notifiable;
+class Offer extends Model
+{
 
     //
      protected $fillable = [
