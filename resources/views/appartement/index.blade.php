@@ -19,7 +19,7 @@
     </tr>
   </thead>
   <tbody>
-  @foreach($appartement as $appartement)
+  @foreach($appartements as $appartement)
   @foreach($appartement->offers as $offer)
     <tr>
 

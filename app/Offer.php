@@ -11,6 +11,9 @@ Relation::morphMap([
 Relation::morphMap([
     'Appartement'=>Appartement::class
 ]);
+Relation::morphMap([
+    'Villa'=>Villa::class
+]);
 class Offer extends Model
 {
 
