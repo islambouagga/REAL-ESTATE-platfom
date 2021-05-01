@@ -4,21 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Villa extends Model
+class Appartement extends Model
 {
-
+    //
     protected $fillable = [
         'etage',
         'chombre',
         'addrbalconess',
         'toilettes',
         'cuisine',
-        'garage',
        
 
 
     ];
-    public function villas(){
+    public function appartements(){
         return $this->morphMany(Offer::class , 'offertable');
     }
 }

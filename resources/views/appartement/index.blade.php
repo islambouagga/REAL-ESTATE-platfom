@@ -12,7 +12,6 @@
       <th scope="col">Nomber de Balcon</th>
       <th scope="col">Nomber de Toilettes</th>
       <th scope="col">Nomber De cuisine</th>
-      <th scope="col">Nomber De garage</th>
       <th scope="col">Prix</th>
       <th scope="col">Surfface</th>
      <th scope="col">edit</th>
@@ -20,27 +19,26 @@
     </tr>
   </thead>
   <tbody>
-  @foreach($villa as  $villa)
-  @foreach($villa->offers as $offer)
+  @foreach($appartement as $appartement)
+  @foreach($appartement->offers as $offer)
     <tr>
 
-      <td>{{$villa->id}}</td>   
+      <td>{{$appartement->id}}</td>   
      <td>{{$offer->address}}</td>
-      <td>{$villa->etage}}</td>
-      <td>{{$villa->salledebain}}</td>
-      <td>{{$villa->balcon}}</td>
-      <td>{{$villa->toilettes}}</td>
-      <td>{{$villa->cuisine}}</td>
-      <td>{{$villa->garage}}</td>
+      <td>{{$appartement->etage}}</td>
+      <td>{{$appartement->salledebain}}</td>
+      <td>{{$appartement->balcon}}</td>
+      <td>{{$appartement->toilettes}}</td>
+      <td>{{$appartement->cuisine}}</td>
       <td>{{$offer->address}}</td>
       <td>{{$offer->prix}}</td>
       <td>{{$offer->surfface}}</td>
 
-    <td><a class="btn " href="{{route('villa.show',$villa->id)}}"> <i class="fas fa-edit "
+    <td><a class="btn " href="{{route('appartement.show',$appartement->id)}}"> <i class="fas fa-edit "
                                                                                                        style="color: green"></i></a></td>
 
                                   <td>         <form role="form" method="post"
-                                                     action="{{route('villa.destroy',$villa->id)}}">
+                                                     action="{{route('appartement.destroy',$appartement->id)}}">
                                           @method('DELETE')
                                           @csrf
                                           <button type="submit" class="btn"><i class="fas fa-trash red"

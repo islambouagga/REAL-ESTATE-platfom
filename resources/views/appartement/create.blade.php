@@ -5,13 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-          <div class="card-header">{{ __('Edit Villa') }}</div>
+                <div class="card-header">{{ __('Create Offer Appartement') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('villa.update',$client->id) }}">
-                        @method('PATCH')
+                    <form method="POST" action="{{ route('appartement.store') }}">
                         @csrf
-                        @foreach($client->users as $user)
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
@@ -25,6 +23,19 @@
                                 @enderror
                             </div>
                         </div>
+                     
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __(' Nomber de Etage') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="etage" type="text" class="form-control @error('etage') is-invalid @enderror" name="etage" value="{{ old('etage') }}" required autocomplete="etage" autofocus>
+
+                                @error('etage')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>  <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nomber de Chombre') }}</label>
 
@@ -77,9 +88,8 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __(' Nomber De Cuisine') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __(' Nomber De cuisine') }}</label>
 
                             <div class="col-md-6">
                                 <input id="cuisine" type="text" class="form-control @error('cuisine') is-invalid @enderror" name="cuisine" value="{{ old('cuisine') }}" required autocomplete="cuisine" autofocus>
@@ -91,19 +101,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __(' Nomber De Garage') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="garage" type="text" class="form-control @error('garage') is-invalid @enderror" name="garage" value="{{ old('garage') }}" required autocomplete="garage" autofocus>
-
-                                @error('garage')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Prix') }}</label>
 
@@ -118,6 +116,7 @@
                             </div>
                         </div>
                         <input type="hidden" name="offertable_type" value="Terre">
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Surfface') }}</label>
 
@@ -132,20 +131,22 @@
                             </div>
                         </div>
 
-                    
+
+
+
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Edit') }}
+                                    {{ __('Submit') }}
                                 </button>
                             </div>
                         </div>
-                        @endforeach
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-@endsection
+    @endsection
