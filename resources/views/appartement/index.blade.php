@@ -23,7 +23,7 @@
   @foreach($appartement->offers as $offer)
     <tr>
 
-      <td>{{$appartement->id}}</td>   
+      <td>{{$appartement->id}}</td>
      <td>{{$offer->address}}</td>
       <td>{{$appartement->etage}}</td>
       <td>{{$appartement->salledebain}}</td>

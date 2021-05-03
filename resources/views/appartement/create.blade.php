@@ -23,7 +23,7 @@
                                 @enderror
                             </div>
                         </div>
-                     
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __(' Nomber de Etage') }}</label>
 
@@ -36,7 +36,10 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>  <div class="form-group row">
+                        </div>
+
+                        <input type="hidden" name="offertable_type" value="Appartement">
+                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nomber de Chombre') }}</label>
 
                             <div class="col-md-6">
@@ -115,7 +118,6 @@
                                 @enderror
                             </div>
                         </div>
-                        <input type="hidden" name="offertable_type" value="Terre">
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Surfface') }}</label>

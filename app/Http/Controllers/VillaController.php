@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Offer;
 use App\Villa;
 use Illuminate\Http\Request;
 
@@ -34,8 +35,9 @@ class VillaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,Offer $offer)
+    public function store(Request $request,Offer $offer , Villa $villa)
     {
+//        dd($request->all());
         $villa->etage =$request->etage;
         $villa->chombre = $request->chombre;
         $villa->salledebain = $request->salledebain;
@@ -45,11 +47,13 @@ class VillaController extends Controller
         $villa->garage = $request->garage;
         $villa->save();
 
-          Offer::create([
-        'address' => $request['address'],
-        'prix' => $request['prix'],
-        'surfface' => $request['surfface'], ]);
-     
+        $offer->address = $request->address;
+        $offer->prix =$request->prix;
+        $offer->surfface = $request->surfface;
+        $offer->offertable_id = $villa->id;
+        $offer->offertable_type = $request->offertable_type;
+        $offer->save();
+
         return redirect('/villa');
     }
 
@@ -85,20 +89,19 @@ class VillaController extends Controller
     public function update(Request $request, Villa $villa)
     {
 
-            $villa->etage =$request->etage;
-            $villa->chombre = $request->chombre;
-            $villa->salledebain = $request->salledebain;
-            $villa->balcon = $request->balcon;
-            $villa->toilettes = $request->toilettes;
-            $villa->cuisine = $request->cuisine;
-            $villa->garage = $request->garage;
-            $villa->save();
+        $villa->etage =$request->etage;
+        $villa->chombre = $request->chombre;
+        $villa->salledebain = $request->salledebain;
+        $villa->balcon = $request->balcon;
+        $villa->toilettes = $request->toilettes;
+        $villa->cuisine = $request->cuisine;
+        $villa->garage = $request->garage;
+        $villa->save();
 
         foreach ($villa->offers()->get() as $offer ){
-            $offer->prix =  $request->prix;
-            $offer->surfface =  $request->surfface;
-            $offer->adresse =  $request->adresse;
-
+            $offer->address = $request->address;
+            $offer->prix =$request->prix;
+            $offer->surfface = $request->surfface;
            $offer->save();
            }
            return  view('villa.show')->with('villa',$villa);

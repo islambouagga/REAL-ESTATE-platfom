@@ -19,8 +19,11 @@ class CreateOffersTable extends Migration
             $table->string('prix');
             $table->string('surfface');
             $table->timestamps();
-            $table->bigInteger('offertable_id');
-            $table->string('offertable_type');
+
+            //  hna any derthom ->nullable() m3nha ya9drp ykono null wa mbe3d bech man3wdch ndir php artisan migrate:refresh dert whdi fi phpmyadmin
+
+            $table->bigInteger('offertable_id')->nullable();
+            $table->string('offertable_type')->nullable();
                 });
     }
 

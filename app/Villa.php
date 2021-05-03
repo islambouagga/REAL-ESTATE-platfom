@@ -14,11 +14,11 @@ class Villa extends Model
         'toilettes',
         'cuisine',
         'garage',
-       
+
 
 
     ];
-    public function villas(){
+    public function offers(){
         return $this->morphMany(Offer::class , 'offertable');
     }
 }

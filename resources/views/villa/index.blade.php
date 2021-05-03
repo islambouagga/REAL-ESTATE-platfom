@@ -24,15 +24,15 @@
   @foreach($villa->offers as $offer)
     <tr>
 
-      <td>{{$villa->id}}</td>   
+      <td>{{$villa->id}}</td>
      <td>{{$offer->address}}</td>
-      <td>{$villa->etage}}</td>
+      <td>{{$villa->etage}}</td>
+      <td>{{$villa->chombre}}</td>
       <td>{{$villa->salledebain}}</td>
       <td>{{$villa->balcon}}</td>
       <td>{{$villa->toilettes}}</td>
       <td>{{$villa->cuisine}}</td>
       <td>{{$villa->garage}}</td>
-      <td>{{$offer->address}}</td>
       <td>{{$offer->prix}}</td>
       <td>{{$offer->surfface}}</td>
 

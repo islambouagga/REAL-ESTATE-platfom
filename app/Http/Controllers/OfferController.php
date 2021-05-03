@@ -45,8 +45,11 @@ class OfferController extends Controller
             $offer->address = $request->address;
             $offer->prix =$request->prix;
             $offer->surfface = $request->surfface;
-            $offer->usertable_id = $request->offertable_id;
-            $offer->usertable_type = $request->offertable_type;
+
+            // hado wlaw mech lazem khterch dethom 9ader ykono null mais lazem n3mrhom fi terre/villa/appertement
+
+//            $offer->offertable_id = $request->offertable_id;
+//            $offer->offertable_type = $request->offertable_type;
 
 
             $offer->save();

@@ -13,11 +13,11 @@ class Appartement extends Model
         'addrbalconess',
         'toilettes',
         'cuisine',
-       
+
 
 
     ];
-    public function appartements(){
+    public function offers(){
         return $this->morphMany(Offer::class , 'offertable');
     }
 }

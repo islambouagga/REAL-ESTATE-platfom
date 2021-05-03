@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @foreach($Client->users as $user)
+    @foreach($appartement->offers as $offer)
         <h1>appartement address :  {{$offer->address}}</h1>
         <h1>appartement etage :  {{$appartement->etage}}</h1>
         <h1>appartement chombre :  {{$appartement->chombre}}</h1>
@@ -12,7 +12,7 @@
         <h1>appartement cuisine :  {{$appartement->cuisine}}</h1>
         <h1>appartement prix :  {{$offer->prix}}</h1>
         <h1>appartement surfface :  {{$offer->surfface}}</h1>
-        
+
 
 
     @endforeach

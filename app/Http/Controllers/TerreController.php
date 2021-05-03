@@ -86,11 +86,14 @@ class TerreController extends Controller
      */
     public function update(Request $request, Terre $terre)
     {
-        //
+//        dd($request->all());
+
+
+        // khawaaalaaaaa rakziiiiiiiiiiii
         foreach ($terre->offers()->get() as $offer ){
             $offer->prix =  $request->prix;
             $offer->surfface =  $request->surfface;
-            $offer->adresse =  $request->adresse;
+            $offer->address =  $request->address;
 
            $offer->save();
            }

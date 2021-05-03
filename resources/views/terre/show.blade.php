@@ -2,8 +2,8 @@
 
 @section('content')
 
-    @foreach($offer as $offer)
-     
+    @foreach($terre->offers as $offer)
+
         <h1>offer adderss :  {{$offer->address}}</h1>
         <h1>offer prix :  {{$offer->prix}}</h1>
         <h1>offer  surfface :  {{$offer->surfface}}</h1>

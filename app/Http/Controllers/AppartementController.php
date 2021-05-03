@@ -16,7 +16,7 @@ class AppartementController extends Controller
     public function index()
     {
         //
-        $appartement =  appartement::all();
+        $appartement = Appartement::all();
         return view('appartement.index')->with('appartements',$appartement);
     }
 
@@ -37,8 +37,9 @@ class AppartementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, appartement $appartement )
+    public function store(Request $request, appartement $appartement ,Offer $offer)
     {
+//        dd($request->all());
         $appartement->etage =$request->etage;
         $appartement->chombre = $request->chombre;
         $appartement->salledebain = $request->salledebain;
@@ -46,12 +47,13 @@ class AppartementController extends Controller
         $appartement->toilettes = $request->toilettes;
         $appartement->cuisine = $request->cuisine;
         $appartement->save();
+        $offer->address = $request->address;
+        $offer->prix =$request->prix;
+        $offer->surfface = $request->surfface;
+        $offer->offertable_id = $appartement->id;
+        $offer->offertable_type = $request->offertable_type;
+        $offer->save();
 
-          Offer::create([
-        'address' => $request['address'],
-        'prix' => $request['prix'],
-        'surfface' => $request['surfface'], ]);
-     
         return redirect('/appartement');
     }
 
@@ -90,14 +92,21 @@ class AppartementController extends Controller
      */
     public function update(Request $request, Appartement $appartement)
     {
-        //
+//        dd($request->all());
+        $appartement->etage =$request->etage;
+        $appartement->chombre = $request->chombre;
+        $appartement->salledebain = $request->salledebain;
+        $appartement->balcon = $request->balcon;
+        $appartement->toilettes = $request->toilettes;
+        $appartement->cuisine = $request->cuisine;
+        $appartement->save();
         foreach ($appartement->offers()->get() as $offer ){{}
             $offer->prix =  $request->prix;
             $offer->surfface =  $request->surfface;
-            $offer->adresse =  $request->adresse;
+            $offer->address =  $request->address;
           $offer->save();
            }
-           return  view('appartement.show')->with('appartement',$terre);
+           return  view('appartement.show')->with('appartement',$appartement);
     }
 
     /**
