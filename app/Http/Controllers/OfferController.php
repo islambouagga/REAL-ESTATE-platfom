@@ -12,6 +12,11 @@ class OfferController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+           // public function accepter(){
+          //  $offer='offer';
+            //    return view('offer');
+            
+            //} 
     public function index()
     {   $offer =  offer::all();
 

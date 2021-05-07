@@ -31,4 +31,6 @@ Route::resource('terre','TerreController');
 Route::resource('appartement','AppartementController');
 
 Route::resource('villa','VillaController');
+//Route::put('/offer/{offer}','OfferController@accepter');
+
 

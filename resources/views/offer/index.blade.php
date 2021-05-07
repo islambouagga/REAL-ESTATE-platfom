@@ -10,6 +10,8 @@
       <th scope="col">surfface</th>
       <th scope="col">edit</th>
       <th scope="col">delete</th>
+      <th scope="col">accepter</th>
+      <th scope="col">rejeter</th>
     </tr>
   </thead>
   <tbody>
@@ -30,9 +32,30 @@
                                           @method('DELETE')
                                           @csrf
                                           <button type="submit" class="btn"><i class="fas fa-trash red"
-                                                                               style="color: red"></i></button>
+                                                                               style="color: black"></i></button>
                                       </form>
       </td>
+
+
+      <td>         <form role="form" method="post"
+                                                     action="{{route('offer.update',$offer->id)}}">
+                                          @method('put')
+                                          @csrf
+                                          <button type="submit" class="btn"><i class="fas fa-check"
+                                                                               style="color: black"></i></button>
+                                      </form>
+            
+            
+                          </td>
+                          <td>         <form role="form" method="post"
+                                                     action="{{route('offer.update',$offer->id)}}">
+                                          @method('put')
+                                          @csrf
+                                          <button type="submit" class="btn"><i class="fas fa-times-circle"
+                                                                               style="color: black"></i></button>
+                                      </form>
+                                      </td>
+
     </tr>
                @endforeach
 
