@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Offer;
 use App\Terre;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TerreController extends Controller
 {
@@ -46,6 +48,8 @@ class TerreController extends Controller
         $offer->surfface = $request->surfface;
         $offer->offertable_id = $terre->id;
         $offer->offertable_type = $request->offertable_type;
+        $user = User::findOrFail(Auth::id());
+        $offer->createByUser()->associate($user);
         $offer->save();
         return redirect('/terre');
     }

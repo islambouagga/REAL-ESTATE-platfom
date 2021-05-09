@@ -20,12 +20,11 @@ class CreateOffersTable extends Migration
             $table->string('surfface');
             $table->timestamps();
             $table->string('statu')->default('on hold');
-
-            //  hna any derthom ->nullable() m3nha ya9drp ykono null wa mbe3d bech man3wdch ndir php artisan migrate:refresh dert whdi fi phpmyadmin
-
             $table->bigInteger('offertable_id')->nullable();
             $table->string('offertable_type')->nullable();
-                });
+            $table->unsignedBigInteger('create_by_user_id')->nullable();
+            $table->foreign('create_by_user_id')->references('id')->on('users');
+        });
     }
 
     /**

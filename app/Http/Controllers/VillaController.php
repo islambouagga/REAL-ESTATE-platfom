@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Offer;
+use App\User;
 use App\Villa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VillaController extends Controller
 {
@@ -52,6 +54,8 @@ class VillaController extends Controller
         $offer->surfface = $request->surfface;
         $offer->offertable_id = $villa->id;
         $offer->offertable_type = $request->offertable_type;
+        $user = User::findOrFail(Auth::id());
+        $offer->createByUser()->associate($user);
         $offer->save();
 
         return redirect('/villa');

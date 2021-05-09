@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 use App\Offer;
 
 use App\Appartement;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AppartementController extends Controller
 {
@@ -52,6 +54,8 @@ class AppartementController extends Controller
         $offer->surfface = $request->surfface;
         $offer->offertable_id = $appartement->id;
         $offer->offertable_type = $request->offertable_type;
+        $user = User::findOrFail(Auth::id());
+        $offer->createByUser()->associate($user);
         $offer->save();
 
         return redirect('/appartement');

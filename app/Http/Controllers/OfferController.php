@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Offer;
+use App\User;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OfferController extends Controller
 {
@@ -14,10 +17,11 @@ class OfferController extends Controller
      */
 
     public function index()
-    {   $offer =  offer::all();
+    {
+        $offer = offer::all();
 
 
-        return view('offer.index')->with('offers',$offer);
+        return view('offer.index')->with('offers', $offer);
     }
 
     /**
@@ -35,78 +39,73 @@ class OfferController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,offer $offer)
+    public function store(Request $request, offer $offer)
     {
-//        dd($request->all());
-
-
-            $offer->address = $request->address;
-            $offer->prix =$request->prix;
-            $offer->surfface = $request->surfface;
-
-            // hado wlaw mech lazem khterch dethom 9ader ykono null mais lazem n3mrhom fi terre/villa/appertement
-
-//            $offer->offertable_id = $request->offertable_id;
-//            $offer->offertable_type = $request->offertable_type;
-
-
-            $offer->save();
-
-            return redirect('/offer');
+//        dd(User::findOrFail(Auth::id()));
+        $offer->address = $request->address;
+        $offer->prix = $request->prix;
+        $offer->surfface = $request->surfface;
+//        $offer->user_id =  Auth::id();
+        $user = User::findOrFail(Auth::id());
+        $offer->createByUser()->associate($user);
+//        dd($offer->createByUser()->get());
+        $offer->save();
+        return redirect('/offer');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Offer  $offer
+     * @param \App\Offer $offer
      * @return \Illuminate\Http\Response
      */
     public function show(Offer $offer)
     {
-        //
-        return view ('offer.show')->with('offer' ,$offer);
+        dd($offer->createByUser()->get());
+        $user=$offer->createByUser();
+        dd($user);
+        return view('offer.show')->with('offer', $offer);
 
     }
-
 
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Offer  $offer
+     * @param \App\Offer $offer
      * @return \Illuminate\Http\Response
      */
     public function edit(Offer $offer)
     {
         //
-        return view ('offer.edit')->with('offer' ,$offer);
+        return view('offer.edit')->with('offer', $offer);
 
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Offer  $offer
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Offer $offer
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Offer $offer)
     {
         //
         $offer->update($request->all());
-        return view('offer.show')->with('offer',$offer);
+        return view('offer.show')->with('offer', $offer);
 
 
-        }
+    }
 
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Offer  $offer
+     * @param \App\Offer $offer
      * @return \Illuminate\Http\Response
      */
     public function destroy(Offer $offer)
@@ -117,21 +116,23 @@ class OfferController extends Controller
     }
 
 
-     public function accepter(Offer $offer){
+    public function accepter(Offer $offer)
+    {
 
         $offer->statu = 'accepter';
         $offer->save();
 
-         return redirect('/offer');
+        return redirect('/offer');
 
     }
 
-    public function rejeter(Offer $offer){
+    public function rejeter(Offer $offer)
+    {
 
         $offer->statu = 'rejeter';
         $offer->save();
 
-         return redirect('/offer');
+        return redirect('/offer');
 
     }
 

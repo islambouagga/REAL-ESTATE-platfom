@@ -8,14 +8,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 Relation::morphMap([
-    'Admin'=>Admin::class
+    'Admin' => Admin::class
 ]);
 
 Relation::morphMap([
-    'Assistant'=>Assistant::class
+    'Assistant' => Assistant::class
 ]);
 Relation::morphMap([
-    'Client'=>Client::class
+    'Client' => Client::class
 ]);
 
 
@@ -55,7 +55,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function usertable(){
+    public function usertable()
+    {
         return $this->morphTo();
+    }
+
+    public function createOffer(){
+        return $this->hasMany(Offer::class);
     }
 }
