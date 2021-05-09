@@ -38,4 +38,8 @@ class Offer extends Model
     public function createByUser(){
         return $this->belongsTo(User::class);
     }
+
+    public function buyByUser(){
+        return $this->belongsToMany(User::class);
+    }
 }

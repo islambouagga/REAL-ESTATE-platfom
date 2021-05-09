@@ -16,5 +16,7 @@ class Client extends Model
         return $this->morphMany(User::class , 'usertable');
     }
 
+    
+
 
 }
