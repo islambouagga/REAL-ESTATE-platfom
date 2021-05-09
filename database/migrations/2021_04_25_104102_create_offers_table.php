@@ -19,6 +19,7 @@ class CreateOffersTable extends Migration
             $table->string('prix');
             $table->string('surfface');
             $table->timestamps();
+            $table->string('statu')->default('on hold');
 
             //  hna any derthom ->nullable() m3nha ya9drp ykono null wa mbe3d bech man3wdch ndir php artisan migrate:refresh dert whdi fi phpmyadmin
 

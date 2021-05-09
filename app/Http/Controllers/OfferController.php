@@ -12,11 +12,7 @@ class OfferController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-           // public function accepter(){
-          //  $offer='offer';
-            //    return view('offer');
-            
-            //} 
+
     public function index()
     {   $offer =  offer::all();
 
@@ -119,4 +115,25 @@ class OfferController extends Controller
         $offer->delete();
         return redirect('/offer');
     }
+
+
+     public function accepter(Offer $offer){
+
+        $offer->statu = 'accepter';
+        $offer->save();
+
+         return redirect('/offer');
+
+    }
+
+    public function rejeter(Offer $offer){
+
+        $offer->statu = 'rejeter';
+        $offer->save();
+
+         return redirect('/offer');
+
+    }
+
+
 }

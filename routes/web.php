@@ -31,6 +31,9 @@ Route::resource('terre','TerreController');
 Route::resource('appartement','AppartementController');
 
 Route::resource('villa','VillaController');
-//Route::put('/offer/{offer}','OfferController@accepter');
+
+
+Route::patch('/offer/{offer}/accepter','OfferController@accepter')->name('offer.accepter');
+Route::patch('/offer/{offer}/rejeter','OfferController@rejeter')->name('offer.rejeter');
 
 
