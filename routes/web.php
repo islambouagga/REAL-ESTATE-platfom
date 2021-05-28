@@ -1,5 +1,6 @@
 <?php
 
+use App\Offer;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    return view('welcome')->with('offers',Offer::with('createByUser')->get())->with('offers6',Offer::latest()->take(6)->with('createByUser')->get())->with('randomOffers',Offer::inRandomOrder()->limit(5)->get());
 });
 
 Auth::routes();

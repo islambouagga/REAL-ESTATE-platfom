@@ -1,142 +1,57 @@
-@extends('layouts.master')
+@extends('layouts.aler')
 
 @section('content')
 
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Edit Appartement') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('appartement.update',$appartement->id) }}">
-                        @method('PATCH')
-                        @csrf
-                        @foreach($appartement->offers as $offer)
-                            <div class="form-group row">
-                                <label for="name"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
-                                <div class="col-md-6">
-                                    <input id="address" type="text"
-                                           class="form-control @error('address') is-invalid @enderror" name="address"
-                                           value="{{ $offer->address}}" required autocomplete="address" autofocus>
 
-                                    @error('address')
-                                    <span class="invalid-feedback" role="alert">
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section spad set-bg" data-setbg="{{asset('img/breadcrumb-bg.jpg')}}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text">
+                        <h4>Apartment Edit</h4>
+                        <div class="bt-option">
+                            <a href="/"><i class="fa fa-home"></i> Home</a>
+                            <span>Apartment Edit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Property Submit Section Begin -->
+    <section class="property-submit-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="property-submit-form">
+                        <form method="POST" action="{{ route('appartement.update',$appartement->id) }}">
+                            @method('PATCH')
+                            @csrf
+                            @foreach($appartement->offers as $offer)
+                            <div class="pf-title">
+                                <h4>Title</h4>
+                                <input type="text" placeholder="Your Title*">
+                            </div>
+                            <div class="pf-location">
+                                <h4>Property Location</h4>
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $offer->address}}" required autocomplete="address" autofocus>
+
+                                @error('address')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                    @enderror
-                                </div>
+                                @enderror
+
                             </div>
-
-                            <div class="form-group row">
-                                <label for="name"
-                                       class="col-md-4 col-form-label text-md-right">{{ __(' Nomber de Etage') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="etage" type="text"
-                                           class="form-control @error('etage') is-invalid @enderror" name="etage"
-                                           value="{{ $appartement->etage }}" required autocomplete="etage" autofocus>
-
-                                    @error('etage')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="name"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Nomber de Chombre') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="chombre" type="text"
-                                           class="form-control @error('chombre') is-invalid @enderror" name="chombre"
-                                           value="{{ $appartement->chombre }}" required autocomplete="chombre"
-                                           autofocus>
-
-                                    @error('chombre')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="name"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Nomber Salle De Bain') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="salledebain" type="text"
-                                           class="form-control @error('salledebain') is-invalid @enderror"
-                                           name="salledebain" value="{{ $appartement->salledebain }}" required
-                                           autocomplete="salledebain" autofocus>
-
-                                    @error('salledebain')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="name"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Nomber de Balcon') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="balcon" type="text"
-                                           class="form-control @error('balcon') is-invalid @enderror" name="balcon"
-                                           value="{{ $appartement->balcon }}" required autocomplete="balcon" autofocus>
-
-                                    @error('balcon')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="name"
-                                       class="col-md-4 col-form-label text-md-right">{{ __(' Nomber de Toilettes') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="toilettes" type="text"
-                                           class="form-control @error('toilettes') is-invalid @enderror"
-                                           name="toilettes" value="{{ $appartement->toilettes }}" required
-                                           autocomplete="toilettes" autofocus>
-
-                                    @error('toilettes')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="name"
-                                       class="col-md-4 col-form-label text-md-right">{{ __(' Nomber De Cuisine') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="cuisine" type="text"
-                                           class="form-control @error('cuisine') is-invalid @enderror" name="cuisine"
-                                           value="{{ $appartement->cuisine }}" required autocomplete="cuisine"
-                                           autofocus>
-
-                                    @error('cuisine')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Prix') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="prix" type="text"
-                                           class="form-control @error('prix') is-invalid @enderror" name="prix"
-                                           value="{{ $offer->prix }}" required autocomplete="prix" autofocus>
+                            <div class="pf-feature-price">
+                                <h4>Featured Price</h4>
+                                <div class="fp-inputs">
+                                    <input id="prix" type="text" class="form-control @error('prix') is-invalid @enderror" name="prix" value="{{ $offer->prix }}" required autocomplete="prix" autofocus>
 
                                     @error('prix')
                                     <span class="invalid-feedback" role="alert">
@@ -145,37 +60,30 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="name"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Surfface') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="surfface" type="text"
-                                           class="form-control @error('surfface') is-invalid @enderror" name="surfface"
-                                           value="{{ $offer->surfface }}" required autocomplete="surfface" autofocus>
-
-                                    @error('surfface')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
+                            <input type="hidden" name="offertable_type" value="Appartement">
+                            <div class="pf-feature-image">
+                                <h4>Featured Image</h4>
+                                <div class="feature-image-content"></div>
                             </div>
-
-
-
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Edit') }}
-                                    </button>
+                            <div class="pf-property-details">
+                                <h4>Property details</h4>
+                                <div class="property-details-inputs">
+                                    <input type="text" name="surfface"  value="{{ $offer->surfface }}">
+                                    <input type="text" name="balcon" value="{{ $appartement->balcon }}">
+                                    <input type="text" name="chombre" value="{{ $appartement->chombre }}" >
+                                    <input type="text" name="salledebain" value="{{ $appartement->salledebain }}">
+                                    <input type="text" name="etage"   value="{{ $appartement->etage }}" >
+                                    <input type="text" name="toilettes" value="{{ $appartement->toilettes }}">
+                                    <input type="text" name="cuisine"  value="{{ $appartement->cuisine }}">
                                 </div>
+                                <button type="submit" class="site-btn">Submit Property</button>
                             </div>
-                        @endforeach
-                    </form>
+                            @endforeach
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    </section>
+    <!-- Property Submit Section End -->
 @endsection

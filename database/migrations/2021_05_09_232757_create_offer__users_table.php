@@ -13,12 +13,12 @@ class CreateOfferUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('offer__users', function (Blueprint $table) {
+        Schema::create('offer_user', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('create_by_user_id')->nullable();
-            $table->foreign('create_by_user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('buy_By_User_offer_id')->nullable();
-            $table->foreign('buy_By_User_offer_id')->references('id')->on('offers');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('offer_id')->nullable();
+            $table->foreign('offer_id')->references('id')->on('offers');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateOfferUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('offer__users');
+        Schema::dropIfExists('offer_user');
     }
 }

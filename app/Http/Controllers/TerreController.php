@@ -42,15 +42,21 @@ class TerreController extends Controller
      */
     public function store(Request $request,Offer $offer)
     {
+//        dd($request->all());
         $terre =  Terre::create();
+
+//        dd($terre,$offer);
         $offer->address = $request->address;
         $offer->prix =$request->prix;
         $offer->surfface = $request->surfface;
         $offer->offertable_id = $terre->id;
         $offer->offertable_type = $request->offertable_type;
+//        dd($terre,$offer, Auth::id());
         $user = User::findOrFail(Auth::id());
+//        dd($user,$terre,$offer);
         $offer->createByUser()->associate($user);
         $offer->save();
+//        dd($offer);
         return redirect('/terre');
     }
 

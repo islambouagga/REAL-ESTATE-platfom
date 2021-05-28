@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Offer;
 use App\Offer_User;
+use App\User;
 use Illuminate\Http\Request;
 
 class OfferUserController extends Controller
@@ -33,9 +35,16 @@ class OfferUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Offer_User $offer_User)
     {
-        //
+//        dd($request->all());
+        $offer =  Offer::findOrFail($request->offerid);
+//        $offer_User->create_by_user_id = $request->userid;
+//        $offer_User->buy_By_User_offer_id = $request->offerid;
+//        $offer_User->save();
+        $user =  User::findOrFail($request->userid);
+//        dd($offer,$user);
+        $user->buyOffers()->attach($request->offerid);
     }
 
     /**

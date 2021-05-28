@@ -19,6 +19,7 @@ class AppartementController extends Controller
     {
         //
         $appartement = Appartement::all();
+//        dd($appartement);
         return view('appartement.index')->with('appartements',$appartement);
     }
 

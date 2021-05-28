@@ -1,100 +1,150 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.aler')
 
-        <title>Laravel</title>
+@section('content')
+    <!-- Hero Section Begin -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hs-slider owl-carousel">
+                @foreach($offers as $offer )
+                <div class="hs-item set-bg" data-setbg="img/hero/hero-1.jpg">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="hc-inner-text">
+                                <div class="hc-text">
+                                    <h4>Balaji Symphony</h4>
+                                    <p><span class="icon_pin_alt"></span> {{$offer->address}}</p>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+                                    <h5>$ {{$offer->prix}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            @endif
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+    <!-- Property Section Begin -->
+    <section class="property-section latest-property-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="section-title">
+                        <h4>Latest PROPERTY</h4>
+                    </div>
                 </div>
+            </div>
+            <div class="row property-filter">
+                @foreach($offers6 as $offer)
+                <div class="col-lg-4 col-md-6 ">
+                    <div class="property-item">
+                        <div class="pi-pic set-bg" data-setbg="{{asset('img/property/property-1.jpg')}}">
+                        </div>
+                        <div class="pi-text">
+                            <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                            <div class="pt-price">$ {{$offer->prix}}</div>
+                            <h5><a href="#">Home in Merrick Way</a></h5>
+                            <p><span class="icon_pin_alt"></span> 3 Middle Winchendon Rd, Rindge, NH 03461</p>
+                            <ul>
+                                <li><i class="fa fa-object-group"></i>{{$offer->surfface}} M²</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!-- Property Section End -->
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+    <!-- Chooseus Section Begin -->
+    <section class="chooseus-section spad set-bg" data-setbg="img/chooseus/chooseus-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="chooseus-text">
+                        <div class="section-title">
+                            <h4>Why choose us</h4>
+                        </div>
+                        <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown
+                            printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                    <div class="chooseus-features">
+                        <div class="cf-item">
+                            <div class="cf-pic">
+                                <img src="img/chooseus/chooseus-icon-1.png" alt="">
+                            </div>
+                            <div class="cf-text">
+                                <h5>Find your future home</h5>
+                                <p>We help you find a new home by offering a smart real estate.</p>
+                            </div>
+                        </div>
+                        <div class="cf-item">
+                            <div class="cf-pic">
+                                <img src="img/chooseus/chooseus-icon-2.png" alt="">
+                            </div>
+                            <div class="cf-text">
+                                <h5>Buy or rent homes</h5>
+                                <p>Millions of houses and apartments in your favourite cities</p>
+                            </div>
+                        </div>
+                        <div class="cf-item">
+                            <div class="cf-pic">
+                                <img src="img/chooseus/chooseus-icon-3.png" alt="">
+                            </div>
+                            <div class="cf-text">
+                                <h5>Experienced agents</h5>
+                                <p>Find an agent who knows your market best</p>
+                            </div>
+                        </div>
+                        <div class="cf-item">
+                            <div class="cf-pic">
+                                <img src="img/chooseus/chooseus-icon-4.png" alt="">
+                            </div>
+                            <div class="cf-text">
+                                <h5>List your own property</h5>
+                                <p>Sign up now and sell or rent your own properties</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </section>
+    <!-- Chooseus Section End -->
+
+    <!-- Feature Property Section Begin -->
+    <section class="feature-property-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 p-0">
+                    <div class="feature-property-left">
+                        <div class="section-title">
+                            <h4>Feature PROPERTY</h4>
+                        </div>
+                        <a href="#">View all property</a>
+                    </div>
+                </div>
+                <div class="col-lg-8 p-0">
+                    <div class="fp-slider owl-carousel">
+                        @foreach($randomOffers as $offer)
+                        <div class="fp-item set-bg" data-setbg="img/feature-property/fp-1.jpg">
+                            <div class="fp-text">
+                                <h5 class="title">Home in Merrick Way</h5>
+                                <p><span class="icon_pin_alt"></span>{{$offer->address}}</p>
+                                <h5>$ {{$offer->prix}}</h5>
+                                <ul>
+                                    <li><i class="fa fa-object-group"></i>{{$offer->surfface}} M²}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Feature Property Section End -->
+@endsection

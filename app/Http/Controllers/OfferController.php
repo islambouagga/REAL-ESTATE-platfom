@@ -18,9 +18,9 @@ class OfferController extends Controller
 
     public function index()
     {
-        $offer = offer::all();
+        $offer = offer::with('createByUser')->get();
 
-
+//dd($offer);
         return view('offer.index')->with('offers', $offer);
     }
 
@@ -64,9 +64,9 @@ class OfferController extends Controller
      */
     public function show(Offer $offer)
     {
-        dd($offer->createByUser()->get());
+//        dd($offer->createByUser()->get());
         $user=$offer->createByUser();
-        dd($user);
+//        dd($user);
         return view('offer.show')->with('offer', $offer);
 
     }
