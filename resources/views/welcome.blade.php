@@ -6,12 +6,12 @@
         <div class="container">
             <div class="hs-slider owl-carousel">
                 @foreach($offers as $offer )
-                <div class="hs-item set-bg" data-setbg="img/hero/hero-1.jpg">
+                <div class="hs-item set-bg" data-setbg="{{asset('uploads/offers/'.$offer->image)}}">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="hc-inner-text">
                                 <div class="hc-text">
-                                    <h4>Balaji Symphony</h4>
+                                    <h4>{{$offer->title}}</h4>
                                     <p><span class="icon_pin_alt"></span> {{$offer->address}}</p>
 
                                     <h5>$ {{$offer->prix}}</h5>
@@ -40,13 +40,13 @@
                 @foreach($offers6 as $offer)
                 <div class="col-lg-4 col-md-6 ">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="{{asset('img/property/property-1.jpg')}}">
+                        <div class="pi-pic set-bg" data-setbg="{{asset('uploads/offers/'.$offer->image)}}">
                         </div>
                         <div class="pi-text">
                             <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                             <div class="pt-price">$ {{$offer->prix}}</div>
-                            <h5><a href="#">Home in Merrick Way</a></h5>
-                            <p><span class="icon_pin_alt"></span> 3 Middle Winchendon Rd, Rindge, NH 03461</p>
+                            <h5><a href="#">{{$offer->title}}</a></h5>
+                            <p><span class="icon_pin_alt"></span> {{$offer->address}}</p>
                             <ul>
                                 <li><i class="fa fa-object-group"></i>{{$offer->surfface}} M²</li>
                             </ul>
@@ -124,15 +124,14 @@
                         <div class="section-title">
                             <h4>Feature PROPERTY</h4>
                         </div>
-                        <a href="#">View all property</a>
                     </div>
                 </div>
                 <div class="col-lg-8 p-0">
                     <div class="fp-slider owl-carousel">
                         @foreach($randomOffers as $offer)
-                        <div class="fp-item set-bg" data-setbg="img/feature-property/fp-1.jpg">
+                        <div class="fp-item set-bg" data-setbg="{{asset('uploads/offers/'.$offer->image)}}">
                             <div class="fp-text">
-                                <h5 class="title">Home in Merrick Way</h5>
+                                <h5 class="title">{{$offer->title}}</h5>
                                 <p><span class="icon_pin_alt"></span>{{$offer->address}}</p>
                                 <h5>$ {{$offer->prix}}</h5>
                                 <ul>

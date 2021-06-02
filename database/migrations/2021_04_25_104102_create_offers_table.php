@@ -19,6 +19,7 @@ class CreateOffersTable extends Migration
             $table->string('address');
             $table->string('prix');
             $table->string('surfface');
+            $table->mediumText('image');
             $table->timestamps();
             $table->string('statu')->default('on hold');
             $table->bigInteger('offertable_id')->nullable();

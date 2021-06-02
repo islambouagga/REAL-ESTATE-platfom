@@ -55,6 +55,17 @@ class VillaController extends Controller
         $offer->surfface = $request->surfface;
         $offer->offertable_id = $villa->id;
         $offer->offertable_type = $request->offertable_type;
+
+        if ($request->hasFile('image')){
+            $file =  $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename =  time().'.'.$ext;
+            $file->move('uploads/offers',$filename);
+            $offer->image = $filename;
+        }else{
+            return $request ;
+            $offer->image = '';
+        }
         $user = User::findOrFail(Auth::id());
         $offer->createByUser()->associate($user);
         $offer->save();

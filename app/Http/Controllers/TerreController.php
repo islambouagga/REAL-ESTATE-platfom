@@ -53,6 +53,17 @@ class TerreController extends Controller
         $offer->offertable_id = $terre->id;
         $offer->offertable_type = $request->offertable_type;
 //        dd($terre,$offer, Auth::id());
+
+        if ($request->hasFile('image')){
+            $file =  $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename =  time().'.'.$ext;
+            $file->move('uploads/offers',$filename);
+            $offer->image = $filename;
+        }else{
+            return $request ;
+            $offer->image = '';
+        }
         $user = User::findOrFail(Auth::id());
 //        dd($user,$terre,$offer);
         $offer->createByUser()->associate($user);

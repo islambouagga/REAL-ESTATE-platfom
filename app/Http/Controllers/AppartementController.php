@@ -58,7 +58,7 @@ class AppartementController extends Controller
      */
     public function store(Request $request, appartement $appartement ,Offer $offer)
     {
-//        dd($request->all());
+//        dd($request);
         $appartement->etage =$request->etage;
         $appartement->chombre = $request->chombre;
         $appartement->salledebain = $request->salledebain;
@@ -72,11 +72,26 @@ class AppartementController extends Controller
         $offer->surfface = $request->surfface;
         $offer->offertable_id = $appartement->id;
         $offer->offertable_type = $request->offertable_type;
+
+        if ($request->hasFile('image')){
+            $file =  $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename =  time().'.'.$ext;
+            $file->move('uploads/offers',$filename);
+            $offer->image = $filename;
+        }else{
+            return $request ;
+            $offer->image = '';
+        }
+
         $user = User::findOrFail(Auth::id());
         $offer->createByUser()->associate($user);
         $offer->save();
 
-        return redirect('/appartement');
+        $offers =  $user->createOffer()->get();
+        return view('offer.createdyme')->with('offers',$offers);
+
+
     }
 
     /**

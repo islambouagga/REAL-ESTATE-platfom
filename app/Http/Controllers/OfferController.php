@@ -48,6 +48,17 @@ class OfferController extends Controller
         $offer->address = $request->address;
         $offer->prix = $request->prix;
         $offer->surfface = $request->surfface;
+
+        if ($request->hasFile('image')){
+            $file =  $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename =  time().'.'.$ext;
+            $file->move('uploads/offers',$filename);
+            $offer->image = $filename;
+        }else{
+            return $request ;
+            $offer->image = '';
+        }
 //        $offer->user_id =  Auth::id();
         $user = User::findOrFail(Auth::id());
         $offer->createByUser()->associate($user);

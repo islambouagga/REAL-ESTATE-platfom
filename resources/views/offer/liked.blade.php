@@ -37,7 +37,7 @@
                             </div>
                             <div class="pi-text">
                                 <div class="pt-price">$ {{$offer->prix}}</div>
-                                <h5><a href="{{route('offer.show',$offer->id)}}">Home in Merrick Way</a></h5>
+                                <h5><a href="{{route('offer.show',$offer->id)}}">{{$offer->title}}</a></h5>
                                 <p><span class="icon_pin_alt"></span> {{$offer->address}}</p>
                                 <ul>
                                     <li><i class="fa fa-object-group"></i> 2, 283</li>

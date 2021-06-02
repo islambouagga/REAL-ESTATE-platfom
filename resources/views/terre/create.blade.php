@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="property-submit-form">
-                        <form method="POST" action="{{ route('terre.store') }}">
+                        <form method="POST" action="{{ route('terre.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="pf-title">
                                 <h4>Title</h4>
@@ -66,7 +66,7 @@
                             </div>
                             <div class="pf-feature-image">
                                 <h4>Featured Image</h4>
-                                <div class="feature-image-content"></div>
+                                <input type="file" name="image">
                             </div>
                             <div class="pf-property-details">
                                 <h4>Property details</h4>

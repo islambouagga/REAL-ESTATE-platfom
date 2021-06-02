@@ -32,7 +32,7 @@
                 @foreach($offers as $offer )
                 <div class="col-lg-4 col-md-6">
                     <div class="property-item">
-                        <div class="pi-pic set-bg" data-setbg="{{asset('img/property/property-1.jpg')}}">
+                        <div class="pi-pic set-bg" data-setbg="{{asset('uploads/offers/'.$offer->image)}}">
 
                         </div>
                         <div class="pi-text">
