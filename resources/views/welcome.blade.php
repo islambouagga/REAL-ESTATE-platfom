@@ -43,7 +43,6 @@
                         <div class="pi-pic set-bg" data-setbg="{{asset('uploads/offers/'.$offer->image)}}">
                         </div>
                         <div class="pi-text">
-                            <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                             <div class="pt-price">$ {{$offer->prix}}</div>
                             <h5><a href="#">{{$offer->title}}</a></h5>
                             <p><span class="icon_pin_alt"></span> {{$offer->address}}</p>
