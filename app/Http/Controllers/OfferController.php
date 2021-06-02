@@ -136,5 +136,10 @@ class OfferController extends Controller
 
     }
 
+    public function likeed(User $user){
+        $offer =  $user->buyOffers()->get();
+        dd($offer);
+    }
+
 
 }

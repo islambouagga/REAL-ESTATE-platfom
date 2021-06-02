@@ -44,7 +44,7 @@
                                         <button type="submit" class="heart-icon btn"><span class="icon_heart_alt"></span></button>
                                     </form>
                                     <div class="pt-price">$ {{$offer->prix}}</div>
-                                    <h5><a href="{{route('villa.show',$villa->id)}}">Home in Merrick Way</a></h5>
+                                    <h5><a href="{{route('villa.show',$villa->id)}}">{{$offer->title}}</a></h5>
                                     <p><span class="icon_pin_alt"></span> {{$offer->address}}</p>
                                     <ul>
                                         <li><i class="fa fa-object-group"></i>{{$offer->surfface}}</li>

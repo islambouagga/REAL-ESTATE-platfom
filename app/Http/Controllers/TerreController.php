@@ -46,6 +46,7 @@ class TerreController extends Controller
         $terre =  Terre::create();
 
 //        dd($terre,$offer);
+        $offer->title = $request->title;
         $offer->address = $request->address;
         $offer->prix =$request->prix;
         $offer->surfface = $request->surfface;
@@ -101,6 +102,7 @@ class TerreController extends Controller
 
         // khawaaalaaaaa rakziiiiiiiiiiii
         foreach ($terre->offers()->get() as $offer ){
+            $offer->title =  $request->title;
             $offer->prix =  $request->prix;
             $offer->surfface =  $request->surfface;
             $offer->address =  $request->address;

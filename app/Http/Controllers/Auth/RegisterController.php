@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Admin;
+use App\Client;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -54,7 +55,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'nom' => ['required', 'string', 'max:255'],
             'prenom' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -67,14 +68,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $admin = Admin::create();
+        $client = Client::create([
+            'address' => $data['address'],
+            'tel' => $data['tel'],
+        ]);
         return User::create([
             'name' => $data['name'],
             'nom' => $data['nom'],
             'prenom' => $data['prenom'],
             'email' => $data['email'],
-            'usertable_id' => $admin->id,
-            'usertable_type' => $data['usertable_type'],
+            'usertable_id' => $client->id,
+            'usertable_type' => 'Client',
             'password' => Hash::make($data['password']),
         ]);
     }

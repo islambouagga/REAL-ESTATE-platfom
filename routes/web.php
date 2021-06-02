@@ -19,6 +19,13 @@ Route::get('/', function () {
     return view('welcome')->with('offers',Offer::with('createByUser')->get())->with('offers6',Offer::latest()->take(6)->with('createByUser')->get())->with('randomOffers',Offer::inRandomOrder()->limit(5)->get());
 });
 
+Route::get('/about', function (){
+   return view('about');
+});
+Route::get('/contact', function (){
+   return view('contact');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -39,4 +46,7 @@ Route::resource('myByOffer','OfferUserController');
 Route::patch('/offer/{offer}/accepter','OfferController@accepter')->name('offer.accepter');
 Route::patch('/offer/{offer}/rejeter','OfferController@rejeter')->name('offer.rejeter');
 
+Route::get('/likeed/{user}/get','OfferController@likeed')->name('offer.likeed');
+
+//Route::get('/createdbyme/{user}/get','OfferController@createdbyme')->name('offer.createdbyme');
 

@@ -31,10 +31,16 @@
                             @method('PATCH')
                             @csrf
                             @foreach($terre->offers as $offer)
-                            <div class="pf-title">
-                                <h4>Title</h4>
-                                <input type="text" placeholder="Your Title*">
-                            </div>
+                                <div class="pf-title">
+                                    <h4>Title</h4>
+                                    <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $offer->title}}" required autocomplete="title" autofocus>
+
+                                    @error('title')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
                             <div class="pf-location">
                                 <h4>Property Location</h4>
 

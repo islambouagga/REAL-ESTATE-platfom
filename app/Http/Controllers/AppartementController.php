@@ -50,6 +50,7 @@ class AppartementController extends Controller
         $appartement->toilettes = $request->toilettes;
         $appartement->cuisine = $request->cuisine;
         $appartement->save();
+        $offer->title = $request->title;
         $offer->address = $request->address;
         $offer->prix =$request->prix;
         $offer->surfface = $request->surfface;
@@ -106,6 +107,7 @@ class AppartementController extends Controller
         $appartement->cuisine = $request->cuisine;
         $appartement->save();
         foreach ($appartement->offers()->get() as $offer ){{}
+            $offer->title =  $request->title;
             $offer->prix =  $request->prix;
             $offer->surfface =  $request->surfface;
             $offer->address =  $request->address;

@@ -115,6 +115,8 @@
                                     <li><a href="{{route('villa.index')}}">Property Villa</a></li>
                                 </ul>
                             </li>
+                            @guest
+                            @else
                             <li><a href="#">Properties Submit</a>
                                 <ul class="dropdown">
                                     <li><a href="{{route('appartement.create')}}">Apartment Submit</a></li>
@@ -122,10 +124,15 @@
                                     <li><a href="{{route('villa.create')}}">Villa Submit</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./agents.html">Agents</a></li>
-                            <li><a href="./about.html">About</a></li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="#">My Properties</a>
+                                <ul class="dropdown">
+                                    <li><a href="{{route('offer.likeed',Auth::id())}}">What i like</a></li>
+                                    <li><a href="{{route("terre.create")}}"></a></li>
+                                </ul>
+                            </li>
+                            @endguest
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/contact">Contact</a></li>
                         </ul>
                     </nav>
                 </div>

@@ -31,7 +31,7 @@
                                 <div class="col-lg-6 mt-5">
                                     <div class="pd-title">
                                         <div class="pt-price">$ {{$offer->prix}}</div>
-                                        <h3>Home in Merrick Way</h3>
+                                        <h3>{{$offer->title}}</h3>
                                         <p><span class="icon_pin_alt"></span>{{$offer->address}}</p>
                                     </div>
                                 </div>

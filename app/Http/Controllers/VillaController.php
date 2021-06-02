@@ -49,6 +49,7 @@ class VillaController extends Controller
         $villa->garage = $request->garage;
         $villa->save();
 
+        $offer->title = $request->title;
         $offer->address = $request->address;
         $offer->prix =$request->prix;
         $offer->surfface = $request->surfface;
@@ -103,6 +104,7 @@ class VillaController extends Controller
         $villa->save();
 
         foreach ($villa->offers()->get() as $offer ){
+            $offer->title = $request->title;
             $offer->address = $request->address;
             $offer->prix =$request->prix;
             $offer->surfface = $request->surfface;
