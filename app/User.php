@@ -61,7 +61,7 @@ class User extends Authenticatable
     }
 
     public function createOffer(){
-        return $this->hasMany(Offer::class);
+        return $this->hasMany(Offer::class,'create_by_user_id');
     }
     public function buyOffers(){
         return $this->belongsToMany(Offer::class);

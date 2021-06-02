@@ -137,9 +137,14 @@ class OfferController extends Controller
     }
 
     public function likeed(User $user){
-        $offer =  $user->buyOffers()->get();
-        dd($offer);
+        $offers =  $user->buyOffers()->get();
+        return view('offer.liked')->with('offers',$offers);
     }
+    public function createdbyme(User $user){
+        $offers =  $user->createOffer()->get();
+        return view('offer.createdyme')->with('offers',$offers);
+    }
+
 
 
 }

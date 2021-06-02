@@ -6,6 +6,7 @@ use App\Offer;
 use App\Offer_User;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OfferUserController extends Controller
 {
@@ -35,7 +36,7 @@ class OfferUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,Offer_User $offer_User)
+    public function store(Request $request)
     {
 //        dd($request->all());
         $offer =  Offer::findOrFail($request->offerid);
@@ -44,7 +45,12 @@ class OfferUserController extends Controller
 //        $offer_User->save();
         $user =  User::findOrFail($request->userid);
 //        dd($offer,$user);
+        $offer_user =  Offer_User::where('user_id',$request->userid)->where('offer_id',$request->offerid);
+        $user->buyOffers()->where('offer_id',$request->offerid)->first();
+//        dd($user->buyOffers()->where('offer_id',$request->offerid)->first());
         $user->buyOffers()->attach($request->offerid);
+        $offers =  $user->buyOffers()->get();
+        return view('offer.liked')->with('offers',$offers);
     }
 
     /**

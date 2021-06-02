@@ -42,7 +42,12 @@
                                         @csrf
                                         <input type="hidden" name="offerid" value="{{$offer->id}}">
                                         <input type="hidden" name="userid" value="{{Auth::id()}}">
-                                        <button type="submit" class="btn"><i class="fa fa-heart"></i></button>
+                                        @if($offer->create_by_user_id != Auth::id())
+                                            @if(\App\User::findOrFail(Auth::id())->buyOffers()->where('offer_id',$offer->id)->first() == null)
+                                                <button type="submit" class="heart-icon btn"><span
+                                                        class="icon_heart_alt"></span></button>
+                                            @endif
+                                        @endif
                                         <a href="{{route('terre.edit',$terre->id)}}"><i class="fa fa-edit"></i></a>
                                     </form>
                                 </div>

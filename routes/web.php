@@ -47,6 +47,7 @@ Route::patch('/offer/{offer}/accepter','OfferController@accepter')->name('offer.
 Route::patch('/offer/{offer}/rejeter','OfferController@rejeter')->name('offer.rejeter');
 
 Route::get('/likeed/{user}/get','OfferController@likeed')->name('offer.likeed');
+Route::get('/createdbyme/{user}/get','OfferController@createdbyme')->name('offer.createdbyme');
 
 //Route::get('/createdbyme/{user}/get','OfferController@createdbyme')->name('offer.createdbyme');
 

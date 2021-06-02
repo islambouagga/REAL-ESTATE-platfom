@@ -126,8 +126,8 @@
                             </li>
                             <li><a href="#">My Properties</a>
                                 <ul class="dropdown">
+                                    <li><a href="{{route('offer.createdbyme',Auth::id())}}">Created by me </a></li>
                                     <li><a href="{{route('offer.likeed',Auth::id())}}">What i like</a></li>
-                                    <li><a href="{{route("terre.create")}}"></a></li>
                                 </ul>
                             </li>
                             @endguest

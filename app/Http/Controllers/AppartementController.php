@@ -18,9 +18,25 @@ class AppartementController extends Controller
     public function index()
     {
         //
+
+        $arrrr1 = array();
+        $arrrr2 = array();
+        $arrrr = array();
         $appartement = Appartement::all();
+        foreach ($appartement as $app){
+            foreach ($app->offers()->get() as $off){
+
+                             array_push($arrrr1,$off->create_by_user_id);
+                             if ($off->create_by_user_id != Auth::id()){
+                                 array_push($arrrr2,$app);
+                             }
+            }
+            array_push($arrrr,$app->offers()->get());
+        }
+        unset($arrrr[0]);
+//        dd($arrrr,$arrrr1,$arrrr2);
 //        dd($appartement);
-        return view('appartement.index')->with('appartements',$appartement);
+        return view('appartement.index')->with('appartements',$arrrr2);
     }
 
     /**
@@ -125,7 +141,7 @@ class AppartementController extends Controller
     public function destroy(Appartement $appartement)
     {
         //
-        $terre->offers()->delete();
+        $appartement->offers()->delete();
         //delete terre
               $appartement->delete();
               return redirect('/appartement');
