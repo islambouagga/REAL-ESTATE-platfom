@@ -27,7 +27,24 @@ class VillaController extends Controller
     public function index()
     {
         $villa =  villa::all();
-        return view('villa.index')->with('villas',$villa);
+        $arrrr1 = array();
+        $arrrr2 = array();
+        $arrrr = array();
+        foreach ($villa as $app){
+            foreach ($app->offers()->get() as $off){
+
+                array_push($arrrr1,$off->create_by_user_id);
+                if ($off->statu =='accepter'){
+                    if ($off->create_by_user_id != Auth::id()){
+                        array_push($arrrr2,$app);
+                    }
+                }
+
+            }
+            array_push($arrrr,$app->offers()->get());
+        }
+        unset($arrrr[0]);
+        return view('villa.index')->with('villas',$arrrr2);
     }
 
     /**

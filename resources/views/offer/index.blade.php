@@ -36,15 +36,35 @@
 
                         </div>
                         <div class="pi-text">
+                            <div class="row">
+                                @if($offer->statu != 'accepter')
                             <form role="form" method="post"
-                                  action="{{route('myByOffer.store')}}">
+                                  action="{{route('offer.accepter',$offer->id)}}">
+                                @method('PATCH')
                                 @csrf
-                                <input type="hidden" name="offerid" value="{{$offer->id}}">
-                                <input type="hidden" name="userid" value="{{Auth::id()}}">
-                                <button type="submit" class="heart-icon btn"><span class="icon_heart_alt"></span></button>
+                                <button class="btn"><i
+                                        class="fa fa-check" style="color: green"></i></button>
                             </form>
+                                @endif
+                                    @if($offer->statu != 'rejeter')
+                            <form role="form" method="post"
+                                  action="{{route('offer.rejeter',$offer->id)}}">
+                                @method('PATCH')
+                                @csrf
+                                <button class="btn"><i
+                                        class="fa fa-times"></i></button>
+                            </form>
+                                    @endif
+                            <form role="form" method="post"
+                                  action="{{route('offer.destroy',$offer->id)}}">
+                                @method('DELETE')
+                                @csrf
+                                <button class="btn"><i
+                                            class="fa fa-trash" style="color: red"></i></button>
+                            </form>
+                            </div>
                             <div class="pt-price">$ {{$offer->prix}}</div>
-                            <h5><a href="{{route('offer.show',$offer->id)}}">Home in Merrick Way</a></h5>
+                            <h5><a href="{{route('offer.show',$offer->id)}}">{{$offer->title}}</a></h5>
                             <p><span class="icon_pin_alt"></span> {{$offer->address}}</p>
                             <ul>
                                 <li><i class="fa fa-object-group"></i> 2, 283</li>
