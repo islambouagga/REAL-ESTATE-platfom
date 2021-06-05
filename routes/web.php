@@ -15,8 +15,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-
-    return view('welcome')->with('offers',Offer::with('createByUser')->get())->with('offers6',Offer::latest()->take(6)->with('createByUser')->get())->with('randomOffers',Offer::inRandomOrder()->limit(5)->get());
+$offer =  Offer::with('createByUser')->get();
+    $offer_array = array();
+foreach ($offer as $off){
+    if ($off->statu =='accepter'){
+        array_push($offer_array,$off);
+    }
+}
+$oofer6 = Offer::latest()->take(6)->with('createByUser')->get();
+    $offer6_array = array();
+    foreach ($oofer6 as $off){
+        if ($off->statu =='accepter'){
+            array_push($offer6_array,$off);
+        }
+    }
+    $randomOffer =  Offer::inRandomOrder()->limit(5)->get();
+    $randomOffer_array = array();
+    foreach ($randomOffer as $off){
+        if ($off->statu =='accepter'){
+            array_push($randomOffer_array,$off);
+        }
+    }
+    return view('welcome')->with('offers',$offer_array)->with('offers6',$offer6_array)->with('randomOffers',$randomOffer_array);
 });
 
 Route::get('/about', function (){
