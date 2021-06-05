@@ -1,4 +1,4 @@
-@extends('layouts.aler')
+@extends('layouts.avam')
 
 @section('content')
     <!-- Breadcrumb Section Begin -->
@@ -26,7 +26,7 @@
                 <div class="col-lg-6">
                     <div class="about-text">
                         <div class="at-title">
-                            <h3>Welcom to Aler REAL</h3>
+                            <h3>Welcom to Avam REAL</h3>
                             <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an
                                 unknown printer took a galley of type.</p>
                         </div>
@@ -54,7 +54,7 @@
                                     <img src="img/chooseus/chooseus-icon-3.png" alt="">
                                 </div>
                                 <div class="af-text">
-                                    <h6>Buying and selling  homes</h6>
+                                    <h6>Buying or selling homes</h6>
                                     <p>Millions of houses and apartments in your favourite cities</p>
                                 </div>
                             </div>

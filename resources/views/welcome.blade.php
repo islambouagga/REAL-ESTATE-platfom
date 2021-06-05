@@ -1,4 +1,4 @@
-@extends('layouts.aler')
+@extends('layouts.avam')
 
 @section('content')
     <!-- Hero Section Begin -->
@@ -14,7 +14,7 @@
                                     <h4>{{$offer->title}}</h4>
                                     <p><span class="icon_pin_alt"></span> {{$offer->address}}</p>
 
-                                    <h5>$ {{$offer->prix}}</h5>
+                                    <h5>DZ {{$offer->prix}}</h5>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +43,7 @@
                         <div class="pi-pic set-bg" data-setbg="{{asset('uploads/offers/'.$offer->image)}}">
                         </div>
                         <div class="pi-text">
-                            <div class="pt-price">$ {{$offer->prix}}</div>
+                            <div class="pt-price">DZ {{$offer->prix}}</div>
                             <h5><a href="#">{{$offer->title}}</a></h5>
                             <p><span class="icon_pin_alt"></span> {{$offer->address}}</p>
                             <ul>
@@ -85,7 +85,7 @@
                                 <img src="img/chooseus/chooseus-icon-2.png" alt="">
                             </div>
                             <div class="cf-text">
-                                <h5>Buy or rent homes</h5>
+                                <h5>Buying or Selling homes</h5>
                                 <p>Millions of houses and apartments in your favourite cities</p>
                             </div>
                         </div>
@@ -132,7 +132,7 @@
                             <div class="fp-text">
                                 <h5 class="title">{{$offer->title}}</h5>
                                 <p><span class="icon_pin_alt"></span>{{$offer->address}}</p>
-                                <h5>$ {{$offer->prix}}</h5>
+                                <h5>DZ {{$offer->prix}}</h5>
                                 <ul>
                                     <li><i class="fa fa-object-group"></i>{{$offer->surfface}} M²}</li>
                                 </ul>

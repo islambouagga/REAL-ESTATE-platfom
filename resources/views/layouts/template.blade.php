@@ -554,7 +554,7 @@
                                 <span class="day">12</span>
                             </div>
                             <div class="two">
-                                <span class="yr">2019</span>
+                                <span class="yr">2021</span>
                                 <span class="mos">March</span>
                             </div>
                         </div>
@@ -580,7 +580,7 @@
                                 <span class="day">10</span>
                             </div>
                             <div class="two">
-                                <span class="yr">2019</span>
+                                <span class="yr">2021/span>
                                 <span class="mos">March</span>
                             </div>
                         </div>
@@ -606,7 +606,7 @@
                                 <span class="day">05</span>
                             </div>
                             <div class="two">
-                                <span class="yr">2019</span>
+                                <span class="yr">2021</span>
                                 <span class="mos">March</span>
                             </div>
                         </div>
@@ -633,7 +633,7 @@
                                 <span class="day">12</span>
                             </div>
                             <div class="two">
-                                <span class="yr">2019</span>
+                                <span class="yr">2021</span>
                                 <span class="mos">March</span>
                             </div>
                         </div>
@@ -659,7 +659,7 @@
                                 <span class="day">10</span>
                             </div>
                             <div class="two">
-                                <span class="yr">2019</span>
+                                <span class="yr">2021</span>
                                 <span class="mos">March</span>
                             </div>
                         </div>
@@ -685,7 +685,7 @@
                                 <span class="day">05</span>
                             </div>
                             <div class="two">
-                                <span class="yr">2019</span>
+                                <span class="yr">2021</span>
                                 <span class="mos">March</span>
                             </div>
                         </div>
@@ -761,7 +761,7 @@
                         <span class="icon-phone2"></span>
                     </div>
                     <h3 class="mb-4">Contact Number</h3>
-                    <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
+                    <p><a href="tel://1234567920">+2130660235598</a></p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 d-flex">

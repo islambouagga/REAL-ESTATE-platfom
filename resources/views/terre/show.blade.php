@@ -1,4 +1,4 @@
-@extends('layouts.aler')
+@extends('layouts.avam')
 
 @section('content')
 
@@ -30,7 +30,7 @@
                         <div class="row">
                             <div class="col-lg-6 mt-5">
                                 <div class="pd-title">
-                                    <div class="pt-price">$ {{$offer->prix}}</div>
+                                    <div class="pt-price">DZ {{$offer->prix}}</div>
                                     <h3>{{$offer->title}}</h3>
                                     <p><span class="icon_pin_alt"></span>{{$offer->address}}</p>
                                 </div>
@@ -66,12 +66,12 @@
                                             <ul class="left-table">
                                                 <li>
                                                     <span class="type-name">Price</span>
-                                                    <span class="type-value">$ {{$offer->prix}}</span>
+                                                    <span class="type-value">DZ{{$offer->prix}}</span>
                                                 </li>
                                             </ul>
                                             <ul class="right-table">
                                                 <li>
-                                                    <span class="type-name">Home Area</span>
+                                                    <span class="type-name">Home Avam</span>
                                                     <span class="type-value">{{$offer->surfface}} m²</span>
                                                 </li>
                                             </ul>

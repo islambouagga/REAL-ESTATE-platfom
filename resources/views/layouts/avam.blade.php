@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <meta name="keywords" content="Aler, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Aler | Template</title>
+    <title>Avam</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&display=swap"
@@ -46,8 +46,8 @@
     <div id="mobile-menu-wrap"></div>
     <div class="om-widget">
         <ul>
-            <li><i class="icon_mail_alt"></i> Aler.support@gmail.com</li>
-            <li><i class="fa fa-mobile-phone"></i> 125-711-811 <span>125-668-886</span></li>
+            <li><i class="icon_mail_alt"></i> Avam.support@gmail.com</li>
+            <li><i class="fa fa-mobile-phone"></i> 213659680449 <span>213553177487</span></li>
         </ul>
         <a href="#" class="hw-btn">Submit property</a>
     </div>
@@ -74,8 +74,8 @@
                 <div class="col-lg-10">
                     <div class="ht-widget">
                         <ul>
-                            <li><i class="icon_mail_alt"></i> Aler.support@gmail.com</li>
-                            <li><i class="fa fa-mobile-phone"></i> 125-711-811 <span>125-668-886</span></li>
+                            <li><i class="icon_mail_alt"></i> Avam.support@gmail.com</li>
+                            <li><i class="fa fa-mobile-phone"></i> 213659680449 <span>2135531774</span></li>
                         </ul>
                         @guest
                         <a href="{{route('login')}}" class="hw-btn">Login</a>

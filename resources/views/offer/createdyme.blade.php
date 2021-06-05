@@ -1,4 +1,4 @@
-@extends('layouts.aler')
+@extends('layouts.avam')
 
 @section('content')
     <!-- Breadcrumb Section Begin -->

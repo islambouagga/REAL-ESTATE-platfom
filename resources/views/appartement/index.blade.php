@@ -1,4 +1,4 @@
-@extends('layouts.aler')
+@extends('layouts.avam')
 @section('content')
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section spad set-bg" data-setbg="{{asset('img/breadcrumb-bg.jpg')}}">
