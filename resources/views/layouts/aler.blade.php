@@ -111,7 +111,7 @@
                             <li><a href="#">Properties</a>
                                 <ul class="dropdown">
                                     <li><a href="{{route('appartement.index')}}">Property Apartment</a></li>
-                                    <li><a href="{{route("terre.index")}}">Property piece of ground</a></li>
+                                    <li><a href="{{route('terre.index')}}">Property piece of ground</a></li>
                                     <li><a href="{{route('villa.index')}}">Property Villa</a></li>
                                 </ul>
                             </li>
@@ -120,7 +120,7 @@
                             <li><a href="#">Properties Submit</a>
                                 <ul class="dropdown">
                                     <li><a href="{{route('appartement.create')}}">Apartment Submit</a></li>
-                                    <li><a href="{{route("terre.create")}}">Piece of ground Submit</a></li>
+                                    <li><a href="{{route('terre.create')}}">Piece of ground Submit</a></li>
                                     <li><a href="{{route('villa.create')}}">Villa Submit</a></li>
                                 </ul>
                             </li>

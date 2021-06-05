@@ -54,7 +54,7 @@
                                     <img src="img/chooseus/chooseus-icon-3.png" alt="">
                                 </div>
                                 <div class="af-text">
-                                    <h6>Buy or rent homes</h6>
+                                    <h6>Buying and selling  homes</h6>
                                     <p>Millions of houses and apartments in your favourite cities</p>
                                 </div>
                             </div>
