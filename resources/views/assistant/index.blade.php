@@ -29,7 +29,7 @@
       <td>{{$user->email}}</td>
 
     <td><a class="btn " href="{{route('assistant.show',$assistant->id)}}"> <i class="fas fa-edit "
-                                                                                                       style="color: green"></i></a></td>
+                                style="color: green"></i></a></td>
 
                                   <td>         <form role="form" method="post"
                                                      action="{{route('assistant.destroy',$assistant->id)}}">

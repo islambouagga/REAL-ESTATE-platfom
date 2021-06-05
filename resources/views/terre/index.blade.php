@@ -49,7 +49,7 @@
                                         @endif
                                     @endif
                                 </form>
-                                <div class="pt-price">$ {{$offer->prix}}</div>
+                                <div class="pt-price">DZ{{$offer->prix}}</div>
                                 <h5><a href="{{route('terre.show',$terre->id)}}">{{$offer->title}}</a></h5>
                                 <p><span class="icon_pin_alt"></span> {{$offer->address}}</p>
                                 <ul>
