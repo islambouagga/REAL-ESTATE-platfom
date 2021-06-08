@@ -185,8 +185,7 @@
                             <img src="img/f-logo.png" alt="">
                         </a>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua ut aliquip ex ea</p>
+                    <p>The real estate agency is an establishement of an industrial and commercial nature that is concerned with lecensing real estate into partitions for the purpose of resale </p>
                     <div class="fs-social">
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>

@@ -67,8 +67,7 @@
                         <div class="section-title">
                             <h4>Why choose us</h4>
                         </div>
-                        <p>Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown
-                            printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <p>Because we help the customer to buy and sell real estate quickly and easily</p>
                     </div>
                     <div class="chooseus-features">
                         <div class="cf-item">
